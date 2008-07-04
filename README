@@ -1,13 +1,18 @@
 HasMarkup
 =========
 
-Introduction goes here.
+I had a few markup related thing in my blog. I intended to yank them out to be more generalized. For great justice, and all.
+
+Perhaps you intend yourself to have some markup in your model, say it's markdown, and say it's required or not, and it's cached or not.
+
+This plugin helps you do such things.
 
 
 Example
 =======
 
-Example goes here.
+  has_markup :content, :syntax => :markdown, :required => true, :cache => true
 
 
-Copyright (c) 2008 [name of plugin creator], released under the MIT license
+
+Copyright (c) 2008 [Josh Nichols], released under the MIT license
