@@ -24,7 +24,7 @@ module HasMarkup
       when :markdown
         validates_markdown_syntax attr
       else
-        raise "Unsupported syntax #{syntax.inspect}. has_markup supports: :markdown"
+        raise "Unsupported syntax #{syntax.inspect}. has_markup currently supports :markdown"
       end
       
       if options[:cache]
@@ -45,14 +45,13 @@ module HasMarkup
       end
     end
     
-    protected
-        def default_has_markup_options
-          {
-            :syntax => :markdown,
-            :required => false,
-            :cache => false
-          }
-        end
+    def default_has_markup_options
+      {
+        :syntax => :markdown,
+        :required => false,
+        :cache => false
+      }
+    end
   end
   
   module InstanceMethods
