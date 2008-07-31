@@ -3,13 +3,6 @@ module HasMarkup
     base.extend ClassMethods
   end
   
-  class UnsupportedSyntax < RuntimeError
-    attr_accessor :syntax
-    def initialize(syntax)
-      @syntax = syntax
-    end
-  end
-  
   module ClassMethods
     def has_markup(attr, options = {})
       include HasMarkup::InstanceMethods
