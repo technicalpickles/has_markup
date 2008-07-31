@@ -8,13 +8,8 @@ require 'shoulda'
 require 'shoulda/asserts'
 require 'shoulda/rails'
 require 'factory_girl'
-require 'has_markup/shoulda'
 
 require "#{File.dirname(__FILE__)}/../init"
-
-Factory.define :post do |p|
-  p.content 'I be content yo'
-end
 
 config = YAML::load(IO.read(File.dirname(__FILE__) + '/database.yml'))
 ActiveRecord::Base.logger = Logger.new(File.dirname(__FILE__) + "/debug.log")
