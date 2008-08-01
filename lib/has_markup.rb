@@ -6,7 +6,6 @@ module HasMarkup
       # Adds the following methods for dealing with markup, using <tt>has_markup :content</tt> as an example:
       # * <tt>content_html</tt> for generating the html of <tt>:content</tt>.
       # 
-      # 
       # Options are:
       # * <tt>:required</tt> - column is required
       # * <tt>:syntax</tt> - syntax of the markup. Currently supports only :markdown, which is the default.
@@ -15,7 +14,8 @@ module HasMarkup
       #   It also adds a before_save hook <tt>:cache_content_html</tt> for generating the html before saving.
       #
       # To support other syntaxes, you just need to add a method on ActiveRecord::Base named like
-      # <tt>sprinkle_ursyntax_magic</tt> which takes a column. You should define a method named
+      # <tt>sprinkle_ursyntax_magic</tt> which takes a column (where <tt>ursyntax</tt> is the name
+      # of your awesome syntax). You should define a method named
       # "#{column}_html" which generates the html from the markup. You might also want to validate
       # the syntax of the column.
       def has_markup(column, options = {})
