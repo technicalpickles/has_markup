@@ -3,6 +3,7 @@ module HasMarkup
     base.extend ClassMethods
   end
   
+  # Methods that are added to ActiveRecord::Base
   module ClassMethods
     def has_markup(attr, options = {})
       include HasMarkup::InstanceMethods
@@ -47,6 +48,7 @@ module HasMarkup
     end
   end
   
+  # Methods which are added to instances of class which have been has_markupified.
   module InstanceMethods
     def cache_markup_of(attr, syntax)
       case syntax

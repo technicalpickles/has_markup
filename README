@@ -1,7 +1,11 @@
 HasMarkup
 =========
 
-I had a few markup related thing in my blog. I intended to yank them out to be more generalized. For great justice, and all.
+I don't know about you, but I'm not too much of a fan of writing out raw HTML when I'm trying to belt out some blog posts. Keeping track of those pesky closing tags, escaping entities, and so on, can really get in the way of your creativity.
+
+As a result, most blogs provide a simplified markup or some sort of editor. For technicalpickles.com, I went for the former.
+
+I extracted the markdown magic out of it, and this plugin is the result.
 
 Perhaps you intend yourself to have some markup in your model, say it's markdown, and say it's required or not, and it's cached or not.
 
@@ -11,8 +15,17 @@ This plugin helps you do such things.
 Example
 =======
 
-  has_markup :content, :syntax => :markdown, :required => true, :cache => true
+In your model:
+
+  class Post
+    has_markup :content, :syntax => :markdown, :required => true, :cache => true
+  end
+
+And you can test it easily using Shoulda:
+
+  class PostTest < Test::Unit::TestCase
+    should_have_markup :content, :syntax => :markdown, :required => true, :cache => true
+  end
 
 
-
-Copyright (c) 2008 [Josh Nichols], released under the MIT license
+Copyright (c) 2008 Josh Nichols, released under the MIT license
