@@ -3,7 +3,7 @@ require 'shoulda'
 module HasMarkup # :nodoc:
   # Shoulda macros for has_markup. These get added to <tt>Test::Unit::TestCase</tt>.
   module Shoulda
-    # Ensure that markup is getting cached.
+    # Ensure that markup is cached.
     #
     #   should_cache_markup :content
     def should_cache_markup(column)
@@ -12,6 +12,9 @@ module HasMarkup # :nodoc:
       # TODO test that there's before_save action happening
     end
     
+    # Ensure that markup is required.
+    #
+    #   should_require_markup :content
     def should_require_markup(column)
       should_require_attributes column
     end

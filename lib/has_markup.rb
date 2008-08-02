@@ -32,6 +32,7 @@ module HasMarkup
         sprinkle_html_caching_magic column if options[:cache_html]
       end
 
+      # Validates the markdown syntax of the given columns.
       def validates_markdown_syntax(*columns)
         validates_each(*columns) do |record, column, value|
           begin
