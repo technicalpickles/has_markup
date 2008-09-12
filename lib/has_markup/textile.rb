@@ -7,7 +7,7 @@ module HasMarkup
       extend HasMarkup::Textile::ClassMethods
       include HasMarkup::Textile::InstanceMethods
     
-      validates_markdown_syntax column
+      validates_textile_syntax column
       define_method "#{column}_html" do
         markdown = self.send(column)
         self.generate_html_from_markdown(markdown)
@@ -26,7 +26,7 @@ module HasMarkup
         validates_each(*columns) do |record, column, value|
           begin
             record.generate_html_from_markdown(value)
-          rescue BlueCloth::FormatError => e
+          rescue e
             errors.add column, "has #{e}"
           end
         end
