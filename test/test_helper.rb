@@ -1,6 +1,12 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 
 require 'rubygems'
+
+Dir[File.join(File.dirname(__FILE__), '..', 'vendor', 'gems', '**')].each do |dir| 
+  lib = "#{dir}/lib"
+  $LOAD_PATH.unshift(lib) if File.directory?(lib)
+end
+
 require 'test/unit'
 require 'active_record'
 require 'shoulda'
