@@ -2,10 +2,11 @@ $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 
 require 'rubygems'
 require 'test/unit'
+gem 'activerecord'
 require 'active_record'
+gem 'thoughtbot-shoulda'
 require 'shoulda'
-require 'shoulda/asserts'
-require 'shoulda/rails'
+require 'shoulda/active_record'
 require 'factory_girl'
 require 'ruby-debug'
 
