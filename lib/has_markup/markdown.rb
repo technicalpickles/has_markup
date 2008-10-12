@@ -3,7 +3,6 @@ module HasMarkup
     # Sprinkles the magic needed to support markdown. In particular, it will validate the markdown syntax
     # on the column, and define a method <tt>column_html</tt> which uses BlueCloth to generate HTML.
     def sprinkle_markdown_magic(column)
-      gem 'BlueCloth'
       require 'bluecloth'
     
       extend HasMarkup::Markdown::ClassMethods
