@@ -1,6 +1,7 @@
 module HasMarkup
   module Textile
-    # Sprinkles the magic needed to support textile. In particular, it will define a method <tt>column_html</tt> which uses RedCloth to generate HTML.
+    # Sprinkles the magic needed to support textile. In particular, it will define a method <tt>column_html</tt> which uses RedCloth to
+    # generate HTML.
     def sprinkle_textile_magic(column)
       require 'redcloth'
     

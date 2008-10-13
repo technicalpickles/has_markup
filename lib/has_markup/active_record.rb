@@ -1,6 +1,6 @@
 module HasMarkup
   # Modules to extend ActiveRecord
-  module ActiveRecord # :nodoc:
+  module ActiveRecord
     # Methods that are added to ActiveRecord::Base
     module ClassMethods
       # Adds the following methods for dealing with markup, using <tt>has_markup :content</tt> as an example:
@@ -24,7 +24,6 @@ module HasMarkup
         validates_presence_of column if options[:required]
 
         syntax = options[:syntax]
-        # breakpoint
         if supported? syntax
           extend markup_syntax_module(syntax)
           send("sprinkle_#{syntax}_magic", column)
@@ -34,8 +33,7 @@ module HasMarkup
         sprinkle_html_caching_magic column if options[:cache_html]
       end
       
-      # Is the given syntax supported? This really just asks if there's a method named
-      # "sprinkle_#{syntax}_magic".
+      # Is the given syntax supported?
       def supported?(syntax)
         begin
           markup_syntax_module(syntax)
@@ -52,11 +50,11 @@ module HasMarkup
       
       # Sprinkles the magic for caching the html of the given
       def sprinkle_html_caching_magic(column)
-        define_method "cache_#{column}_html" do
+        define_method "set_cached_#{column}_html" do
           html = self.send("#{column}_html")
           self.send("cached_#{column}_html=", html)
         end
-        before_save "cache_#{column}_html".to_sym
+        before_save "set_cached_#{column}_html".to_sym
       end
     end    
   end
@@ -71,8 +69,6 @@ module HasMarkup
 end
 
 require 'active_record'
-module ActiveRecord # :nodoc:all
-  class Base
-    extend HasMarkup::ActiveRecord::ClassMethods
-  end
+ActiveRecord::Base.class_eval do
+  extend HasMarkup::ActiveRecord::ClassMethods
 end

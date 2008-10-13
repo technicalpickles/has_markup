@@ -8,9 +8,25 @@ class PostTest < Test::Unit::TestCase
       @post = Post.new
     end
     
-    should 'not cache anything doing cache_content' do
-      @post.cache_content_html
-      assert_nil @post.cached_content_html
+    context "caching the content, when it's blank" do
+      setup do
+        @post.set_cached_content_html
+      end
+
+      should "not have cached html" do
+        assert_nil @post.cached_content_html
+      end
     end
+    
+    context "updating the content" do
+      setup do
+        @post.update_attributes(:content => 'hi')
+      end
+
+      should "now have cached html" do
+        assert_equal '<p>hi</p>', @post.cached_content_html
+      end
+    end
+    
   end
 end

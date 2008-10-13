@@ -8,7 +8,7 @@ module HasMarkup # :nodoc:
     #   should_cache_markup :content
     def should_cache_markup(column)
       should_have_db_column "cached_#{column}_html"
-      should_have_instance_methods "cache_#{column}_html"
+      should_have_instance_methods "set_cached_#{column}_html"
       # TODO test that there's before_save action happening
     end
     
