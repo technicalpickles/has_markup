@@ -2,21 +2,36 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-desc 'Default: run unit tests.'
-task :default => :test
-
-desc 'Test the has_markup plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+begin
+  require 'rubygems'
+  require 'jeweler'
+  gemspec = Gem::Specification.new do |s|
+    s.name = "has_markup"
+    s.summary = "Manage markup close to home... right in the model! Caching, validation, etc"
+    s.email = "josh@technicalpickles.com"
+    s.homepage = "http://github.com/technicalpickles/has_markup"
+    s.description = "Manage markup close to home... right in the model! Caching, validation, etc"
+    s.authors = ["Josh Nichols"]
+  end
+  Jeweler.craft(gemspec)
+rescue LoadError
+  puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end
 
-desc 'Generate documentation for the has_markup plugin.'
+Rake::TestTask.new do |t|
+  t.libs << 'lib'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = false
+end
+
+desc 'Generate documentation for the safety_valve plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'HasMarkup'
   rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('README.*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+desc "Run the test suite"
+task :default => :test

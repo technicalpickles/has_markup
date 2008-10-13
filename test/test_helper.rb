@@ -2,6 +2,8 @@ $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 
 require 'rubygems'
 
+# Use vendored gem because of limited gem availability on runcoderun
+# This is loosely based on 'vendor everything'.
 Dir[File.join(File.dirname(__FILE__), '..', 'vendor', 'gems', '**')].each do |dir| 
   lib = "#{dir}/lib"
   $LOAD_PATH.unshift(lib) if File.directory?(lib)
