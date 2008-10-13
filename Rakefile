@@ -12,6 +12,7 @@ begin
     s.homepage = "http://github.com/technicalpickles/has_markup"
     s.description = "Manage markup close to home... right in the model! Caching, validation, etc"
     s.authors = ["Josh Nichols"]
+    s.files = FileList["[A-Z]*.*", "{generators,lib,test,spec}/**/*"]
   end
   Jeweler.craft(gemspec)
 rescue LoadError
@@ -29,7 +30,7 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'HasMarkup'
   rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README.*')
+  rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 

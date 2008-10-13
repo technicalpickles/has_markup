@@ -13,11 +13,11 @@ module HasMarkup
       #   example of using <tt>:content</tt>, it would require a column named <tt>:cached_content_html</tt>.
       #   It also adds a before_save hook <tt>:cache_content_html</tt> for generating the html before saving.
       #
-      # To support other syntaxes, you just need to add a method on ActiveRecord::Base named like
-      # <tt>sprinkle_ursyntax_magic</tt> which takes a column (where <tt>ursyntax</tt> is the name
-      # of your awesome syntax). You should define a method named
-      # "#{column}_html" which generates the html from the markup. You might also want to validate
-      # the syntax of the column.
+      # For adding additional syntaxes, see has_markup/markdown and has_markup/textile. Basically:
+      #
+      # * Create HasMarkup::SyntaxNameHere
+      # * Define sprinkle_syntax_name_here_magic which takes a column name, like <tt>:content</tt>
+      # * In sprinkle_syntax_name_here_magic, create <tt>"#{column}_html"</tt>, which handles the actual generation
       def has_markup(column, options = {})
         options = HasMarkup::default_has_markup_options.merge(options)
         

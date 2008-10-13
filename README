@@ -2,13 +2,16 @@
 
 I don't know about you, but I'm not too much of a fan of writing out raw HTML when I'm trying to belt out some blog posts. Keeping track of those pesky closing tags, escaping entities, and so on, can really get in the way of your creativity.
 
-As a result, most blogs provide a simplified markup or some sort of editor. For technicalpickles.com[http://technicalpickles.com], I went for the former.
+As a result, most blogs provide a simplified markup or some sort of editor. For technicalpickles.com[http://technicalpickles.com], I went with markdown[http://daringfireball.net/projects/markdown/].
 
-I extracted the markdown[http://daringfireball.net/projects/markdown/] magic out of my blog, and this plugin is the result.
+I extracted this markup magic out of my blog, and this plugin is the result. It lets you:
 
-Perhaps you intend yourself to have some markup in your model, say it's markdown, and say it's required or not, and it's cached or not.
-
-This plugin helps you do such things.
+ * Specify a column contains markup
+ * Specify the syntax (markdown and textile, with markdown being the default)
+ * Specify if the markup column is required
+ * Generate a helper for generating the HTML
+ * Specify if the HTML should be cached in the database
+ * ... all using only one line
 
 == Example
 
