@@ -1,6 +1,6 @@
 module HasMarkup
   # Modules to extend ActiveRecord
-  module ActiveRecord
+  module ActiveRecord #:nodoc:
     # Methods that are added to ActiveRecord::Base
     module ClassMethods
       # Adds the following methods for dealing with markup, using <tt>has_markup :content</tt> as an example:

@@ -1,4 +1,5 @@
 module HasMarkup
+  # Provides HasMarkup with markdown[http://daringfireball.net/projects/markdown/] support.
   module Markdown
     # Sprinkles the magic needed to support markdown. In particular, it will validate the markdown syntax
     # on the column, and define a method <tt>column_html</tt> which uses BlueCloth to generate HTML.

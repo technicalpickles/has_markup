@@ -1,4 +1,5 @@
 module HasMarkup
+  # Provides HasMarkup with textile[http://hobix.com/textile/] support
   module Textile
     # Sprinkles the magic needed to support textile. In particular, it will define a method <tt>column_html</tt> which uses RedCloth to
     # generate HTML.
