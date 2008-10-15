@@ -29,7 +29,7 @@ module HasMarkup
           begin
             record.generate_html_from_markdown(value)
           rescue e
-            errors.add column, "has #{e}"
+            record.errors.add column, "has #{e}"
           end
         end
       end
