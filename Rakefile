@@ -14,7 +14,6 @@ begin
     s.authors = ["Josh Nichols"]
     s.files = FileList["[A-Z]*.*", "{generators,lib,test,spec,shoulda_macros}/**/*"]
   end
-  Jeweler.craft(gemspec)
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end
