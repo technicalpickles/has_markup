@@ -5,14 +5,14 @@ require 'rake/rdoctask'
 begin
   require 'rubygems'
   require 'jeweler'
-  gemspec = Gem::Specification.new do |s|
+  Jeweler::Tasks.new do |s|
     s.name = "has_markup"
     s.summary = "Manage markup close to home... right in the model! Caching, validation, etc"
     s.email = "josh@technicalpickles.com"
     s.homepage = "http://github.com/technicalpickles/has_markup"
     s.description = "Manage markup close to home... right in the model! Caching, validation, etc"
     s.authors = ["Josh Nichols"]
-    s.files = FileList["[A-Z]*.*", "{generators,lib,test,spec}/**/*"]
+    s.files = FileList["[A-Z]*.*", "{generators,lib,test,spec,shoulda_macros}/**/*"]
   end
   Jeweler.craft(gemspec)
 rescue LoadError
