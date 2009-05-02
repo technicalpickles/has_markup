@@ -1,2 +1,4 @@
 test/*.log
 rdoc
+*.swp
+*.swo

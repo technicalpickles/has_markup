@@ -12,7 +12,7 @@ begin
     s.homepage = "http://github.com/technicalpickles/has_markup"
     s.description = "Manage markup close to home... right in the model! Caching, validation, etc"
     s.authors = ["Josh Nichols"]
-    s.files = FileList["[A-Z]*.*", "{generators,lib,test,spec,shoulda_macros}/**/*"]
+    s.files = FileList["[A-Z]*.*", "{lib,shoulda_macros}/**/*"]
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
