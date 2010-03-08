@@ -2,21 +2,18 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-begin
-  require 'rubygems'
-  require 'jeweler'
-  Jeweler::Tasks.new do |s|
-    s.name = "has_markup"
-    s.summary = "Manage markup close to home... right in the model! Caching, validation, etc"
-    s.email = "josh@technicalpickles.com"
-    s.homepage = "http://github.com/technicalpickles/has_markup"
-    s.description = "Manage markup close to home... right in the model! Caching, validation, etc"
-    s.authors = ["Josh Nichols"]
-    s.files = FileList["[A-Z]*.*", "{lib,shoulda_macros}/**/*"]
-  end
-rescue LoadError
-  puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
+require 'jeweler'
+Jeweler::Tasks.new do |s|
+  s.name = "has_markup"
+  s.summary = "Manage markup close to home... right in the model! Caching, validation, etc"
+  s.email = "josh@technicalpickles.com"
+  s.authors = ["Josh Nichols"]
+  s.homepage = "http://github.com/technicalpickles/has_markup"
+  s.description = "Manage markup close to home... right in the model! Caching, validation, etc"
+  s.version = "0.1.5"
+  s.files.exclude('vendor/**/*')
 end
+Jeweler::GemcutterTasks.new
 
 Rake::TestTask.new do |t|
   t.libs << 'lib'
